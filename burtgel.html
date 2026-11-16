@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Автотехник, зэвсгийн бүртгэл</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Oswald:wght@500;600&display=swap">
+<style>
+:root{--bg:#0a0d08;--c:#141b10;--c2:#1b2515;--tx:#e4e9d8;--mu:#8d9879;--bd:#2c3623;--pr:#d9a441;--pr2:#f0be5a;--ok:#9ccc65;--wn:#e8a23b;--bad:#ef6b5b;--ink:#15130a;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--tx);font:15px/1.5 "IBM Plex Sans",system-ui,sans-serif;background-color:var(--bg);background-image:radial-gradient(1100px 520px at 85% -10%,rgba(217,164,65,.09),transparent 60%),linear-gradient(rgba(156,204,101,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(156,204,101,.035) 1px,transparent 1px);background-size:auto,28px 28px,28px 28px;background-attachment:fixed}
+header{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:10px 16px;background:rgba(10,13,8,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd);box-shadow:0 1px 0 rgba(217,164,65,.35);position:sticky;top:0;z-index:5}
+nav{display:flex;gap:6px;flex-wrap:wrap;padding:14px 16px 0;max-width:1200px;margin:auto}
+main{padding:14px 16px 40px;max-width:1200px;margin:auto}
+.sp{flex:1}.mu{color:var(--mu)}a{color:var(--pr)}
+h2{font:600 18px Oswald,"Arial Narrow",sans-serif;letter-spacing:.12em;text-transform:uppercase;margin:6px 0 10px;color:var(--pr)}
+.brand{display:flex;gap:10px;align-items:center;color:var(--pr)}.brand svg{width:34px;height:34px}
+.brand b{display:block;font:600 20px/1 Oswald,"Arial Narrow",sans-serif;letter-spacing:.2em;color:var(--tx)}
+.brand small{display:block;font:500 10.5px/1.5 "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mu)}
+.brand.sm svg{width:26px;height:26px}.brand.sm b{font-size:17px}
+.demo{background:var(--wn);color:var(--ink);font:600 11px "IBM Plex Mono",monospace;letter-spacing:.14em;padding:2px 8px}
+button,input,select,textarea{font:inherit;color:var(--tx);background:#0d1209;border:1px solid var(--bd);border-radius:2px;padding:9px 11px;min-height:40px}
+option{background:#0d1209;color:var(--tx)}input::placeholder,textarea::placeholder{color:#6d7860}
+button{cursor:pointer;font:600 12.5px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;background:var(--c2);transition:.15s}
+button:hover{border-color:var(--pr);color:var(--pr2)}
+button.pr,button.on{background:var(--pr);border-color:var(--pr);color:var(--ink)}button.pr:hover,button.on:hover{background:var(--pr2);color:var(--ink)}
+:focus-visible{outline:2px solid var(--pr);outline-offset:1px}
+.card,.tw,.kpi div{background:linear-gradient(180deg,var(--c2),var(--c));border:1px solid var(--bd);border-radius:2px;position:relative}
+.card,.tw{clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))}
+.card{padding:14px;margin-bottom:12px}.card::before{content:"";position:absolute;left:0;top:0;width:22px;height:2px;background:var(--pr)}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.bar input{flex:1;min-width:140px}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--bd);vertical-align:top}tr:last-child td{border-bottom:0}
+th{font:500 11px "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);white-space:nowrap;background:rgba(0,0,0,.28)}
+tr:hover td{background:rgba(217,164,65,.05)}.mono{font-family:"IBM Plex Mono",monospace;letter-spacing:.04em;color:var(--pr2)}
+.b{display:inline-flex;gap:6px;align-items:center;padding:2px 9px;border:1px solid currentColor;border-radius:2px;font:500 12px "IBM Plex Mono",monospace;white-space:nowrap}.b::before{content:"";width:6px;height:6px;background:currentColor}
+.b0{color:var(--ok)}.b1{color:var(--wn)}.b2{color:var(--bad)}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:12px}
+.kpi div{padding:10px 12px;border-left:3px solid var(--pr)}.kpi span{display:block;font:500 10.5px "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+.kpi b{font:600 34px/1.15 Oswald,sans-serif}.kpi .ok{border-left-color:var(--ok)}.kpi .ok b{color:var(--ok)}.kpi .wn{border-left-color:var(--wn)}.kpi .wn b{color:var(--wn)}.kpi .bad{border-left-color:var(--bad)}.kpi .bad b{color:var(--bad)}
+#dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--bad)}#dot.on{background:var(--ok);animation:p 2s infinite}
+@keyframes p{0%{box-shadow:0 0 0 0 rgba(156,204,101,.6)}70%,100%{box-shadow:0 0 0 8px transparent}}
+@media(prefers-reduced-motion:reduce){#dot.on{animation:none}}
+#lg{max-width:440px;margin:6vh auto;padding:0 16px}#lg .card{display:grid;gap:10px}#err{color:var(--bad);min-height:1.3em}
+#lg .brand{flex-direction:column;text-align:center;margin-bottom:18px}#lg .brand svg{width:56px;height:56px}#lg .brand b{font-size:30px}
+pre{white-space:pre-wrap;word-break:break-all;background:#0a0e07;border:1px solid var(--bd);padding:10px;font:12px "IBM Plex Mono",monospace;max-height:280px;overflow:auto;color:var(--ok)}
+@media(max-width:700px){thead{display:none}table,tbody,tr,td{display:block}tr{padding:8px;border-bottom:1px solid var(--bd)}tr:last-child{border:0}td{border:0;padding:2px 4px}td::before{content:attr(data-l)": ";color:var(--mu)}td[data-l=""]::before{content:none}}
+@media print{body{background:#fff;color:#000}header,nav,#f,button,.kpi{display:none!important}.tw,.card{clip-path:none;border:0;background:none}th,td{color:#000;border-color:#999;background:none}.b,.mono{color:#000}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import {getAuth,signInWithEmailAndPassword,createUserWithEmailAndPassword,onAuthStateChanged,signOut,sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import {initializeFirestore,persistentLocalCache,persistentMultipleTabManager,collection,doc,getDoc,setDoc,addDoc,updateDoc,deleteDoc,onSnapshot,query,where,orderBy,limit} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+const $=s=>document.querySelector(s),
+esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';'),
+KIND={auto:'Авто техник',weapon:'Зэвсэг'},ST=['Бэлэн','Засварт','Ашиглах боломжгүй'],
+opt=(a,s)=>a.map(v=>`<option${v===s?' selected':''}>${esc(v)}</option>`).join(''),
+kopt=s=>Object.keys(KIND).map(k=>`<option value="${k}"${s===k?' selected':''}>${KIND[k]}</option>`).join(''),
+fd=t=>{const d=new Date(t),p=n=>String(n).padStart(2,'0');return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes())},
+tbl=(c,r)=>r.length?`<div class="tw"><table><thead><tr>${c.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${r.map(x=>`<tr>${x.map((v,i)=>`<td data-l="${c[i]}">${v}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:'<p class="mu">Мэдээлэл алга</p>',
+msg=x=>{const c=x.code||'';return /invalid-credential|wrong-password|user-not-found/.test(c)?'Имэйл эсвэл нууц үг буруу':c==='auth/email-already-in-use'?'Энэ имэйл бүртгэлтэй байна':c==='auth/weak-password'?'Нууц үг 6+ тэмдэгттэй байх ёстой':c==='permission-denied'?'Эрх байхгүй. Firestore дүрмийг нийтэлсэн эсэхээ шалгана уу':x.message},
+rules=e=>`rules_version = '2';
+service cloud.firestore {
+ match /databases/{d}/documents {
+  function has(){return request.auth!=null&&exists(/databases/$(d)/documents/users/$(request.auth.uid))}
+  function prof(){return get(/databases/$(d)/documents/users/$(request.auth.uid)).data}
+  function adm(){return has()&&prof().role=='admin'}
+  function own(b){return has()&&prof().branch==b}
+  match /users/{u} {
+   allow read: if request.auth!=null&&(request.auth.uid==u||adm());
+   allow create: if adm()||(request.auth!=null&&request.auth.uid==u&&request.auth.token.email=='${e.trim().toLowerCase()}'&&request.resource.data.role=='admin');
+   allow update, delete: if adm();
+  }
+  match /items/{i} {
+   allow read: if adm()||own(resource.data.branch);
+   allow create: if adm()||own(request.resource.data.branch);
+   allow update: if adm()||(own(resource.data.branch)&&request.resource.data.branch==resource.data.branch);
+   allow delete: if adm()||own(resource.data.branch);
+  }
+  match /log/{l} {
+   allow read: if adm();
+   allow create: if request.auth!=null&&request.resource.data.uid==request.auth.uid;
+  }
+ }
+}`;
+let demo=false,cfg=null,auth,db,sec,me,items=[],users=[],log=[],unsub=[],tab='sum',fk='',fb='',q='',edit=null,mode='in';
+try{const m=location.hash.match(/c=([^&]+)/);if(m){cfg=JSON.parse(atob(m[1]));localStorage.setItem('cfg',JSON.stringify(cfg));history.replaceState(null,'',location.pathname)}else cfg=JSON.parse(localStorage.getItem('cfg')||'null')}catch(e){}
+const brand=s=>`<div class="brand${s?' sm':''}"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 28 6v9c0 7-5 12-12 15C9 27 4 22 4 15V6z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 9 2 4.5 5 .5-3.7 3.3 1.1 4.9L16 19.2 11.6 22l1.1-4.9L9 13.8l5-.5z" fill="currentColor"/></svg><div><b>БҮРТГЭЛ</b><small>Автотехник · Зэвсэг</small></div></div>`,
+kpi=t=>{const n=t.auto+t.weapon,p=n?Math.round(t.st[0]/n*100):0;return`<div class="kpi">${[['Нийт',n,''],['Авто техник',t.auto,''],['Зэвсэг',t.weapon,''],['Бэлэн · '+p+'%',t.st[0],'ok'],['Засварт',t.st[1],'wn'],['Ашиглах боломжгүй',t.st[2],'bad']].map(([l,v,c])=>`<div class="${c}"><span>${l}</span><b>${v}</b></div>`).join('')}</div>`},
+link=()=>demo?'(демо горимд холбоос үүсэхгүй)':location.origin+location.pathname+'#c='+btoa(JSON.stringify(cfg)),
+br=()=>[...new Set([...users.filter(u=>u.role==='branch').map(u=>u.branch),...items.map(i=>i.branch)])].sort(),
+dot=()=>{const d=$('#dot');if(d)d.className=navigator.onLine?'on':''},
+logit=(a,b)=>demo?(log.unshift({t:Date.now(),u:me.name,b:b===undefined?me.branch:b,a}),list()):addDoc(collection(db,'log'),{t:Date.now(),uid:me.uid,u:me.name,b:b===undefined?me.branch:b,a}).catch(()=>{});
+addEventListener('online',dot);addEventListener('offline',dot);
+
+function setupView(step,email){
+  $('#app').innerHTML=step===2?`<div id="lg"><h2>2. Firestore дүрэм</h2><p>Firebase дээр Firestore Database → Rules хэсэгт доорх бүгдийг буулгаад "Publish" дарна.</p><button data-a="cp" class="pr">Дүрмийг хуулах</button><pre id="rl">${esc(rules(email))}</pre><button data-a="done" class="pr">Нийтэлсэн, үргэлжлүүл</button></div>`
+  :`<div id="lg">${brand()}<div class="card"><b>Загвар үзэх</b><small class="mu">Firebase холбохгүйгээр, жишээ өгөгдөлтэй:</small><button data-a="demoA" class="pr">Админаар үзэх</button><button data-a="demoB">Салбарын хэрэглэгчээр үзэх</button></div><h2>1. Анхны тохиргоо</h2><form id="fs" class="card"><textarea name="cfg" rows="7" placeholder="Firebase-ийн firebaseConfig хэсгийг (apiKey, authDomain, projectId, appId…) энд буулгана" required></textarea><input name="email" type="email" placeholder="Админы имэйл" required><button class="pr">Үргэлжлүүлэх</button><div id="err"></div></form></div>`}
+function loginView(){
+  const i=mode==='in';
+  $('#app').innerHTML=`<div id="lg">${brand()}<form id="${i?'fl':'fa'}" class="card"><input name="email" type="email" placeholder="Имэйл" autocomplete="username" required><input name="password" type="password" minlength="6" placeholder="Нууц үг (6+)" autocomplete="${i?'current-password':'new-password'}" required><button class="pr">${i?'Нэвтрэх':'Админ бүртгэх'}</button><div id="err"></div><small class="mu"><a href="#" data-a="mode">${i?'Анхны админ бүртгэх':'Нэвтрэх хуудас руу'}</a> · <a href="#" data-a="forgot">Нууц үг сэргээх</a></small></form></div>`}
+const noAccess=m=>{$('#app').innerHTML=`<div id="lg"><div class="card"><p>${esc(m||'Таны бүртгэлд эрх олгогдоогүй байна. Админтай холбогдоно уу.')}</p><button data-a="out">Гарах</button></div></div>`};
+
+async function boot(u){
+  unsub.forEach(f=>f());unsub=[];me=null;items=[];users=[];log=[];
+  if(!u)return loginView();
+  const r=doc(db,'users',u.uid);let s;
+  try{s=await getDoc(r)}catch(e){return noAccess(msg(e))}
+  if(!s.exists()){try{await setDoc(r,{name:'Админ',branch:'',role:'admin',email:u.email});s=await getDoc(r)}catch(e){return noAccess()}}
+  me={uid:u.uid,email:u.email,...s.data()};start()}
+function demoStart(r){
+  demo=true;const t=Date.now(),B=['1-р салбар','2-р салбар','3-р салбар'];
+  users=[{id:'a',email:'admin@demo',name:'Админ',branch:'',role:'admin'},...B.map((b,i)=>({id:'u'+i,email:'salbar'+(i+1)+'@demo',name:b+' хэрэглэгч',branch:b,role:'branch'}))];
+  const R=[[0,'auto','УАЗ-469','0412 УНА',0],[0,'auto','ГАЗ-66','1288 УБА',1],[0,'weapon','АК-74','ЭЖ-4471',0],[0,'weapon','ПМ','ТБ-1093',0],[1,'auto','Урал-4320','2210 УБЕ',0],[1,'auto','УАЗ-452','3345 УНБ',2],[1,'weapon','АК-74','ЭЖ-5120',1],[1,'weapon','СВД','КА-2287',0],[2,'auto','ГАЗ-66','0877 УНГ',0],[2,'auto','Тоёота Ланд Крүзер','5521 УБК',0],[2,'weapon','ПМ','ТБ-2210',2],[2,'weapon','АК-74','ЭЖ-6633',0]];
+  items=R.map((x,i)=>({id:'i'+i,branch:B[x[0]],kind:x[1],name:x[2],number:x[3],status:ST[x[4]],note:'',by:users[x[0]+1].name,at:t-i*36e5}));
+  log=[{t,u:'Демо',b:'',a:'жишээ өгөгдөл ачаалсан'}];
+  const u=users[r==='a'?0:1];me={uid:u.id,...u};start()}
+function start(){
+  const a=me.role==='admin';tab=a?'sum':'it';shell();if(demo)return;
+  const iq=a?collection(db,'items'):query(collection(db,'items'),where('branch','==',me.branch));
+  unsub.push(onSnapshot(iq,s=>{items=s.docs.map(d=>({id:d.id,...d.data()}));list()},e=>alert(msg(e))));
+  if(a){
+    unsub.push(onSnapshot(collection(db,'users'),s=>{users=s.docs.map(d=>({id:d.id,...d.data()}));list()}));
+    unsub.push(onSnapshot(query(collection(db,'log'),orderBy('t','desc'),limit(100)),s=>{log=s.docs.map(d=>d.data());list()}))}}
+
+function shell(){
+  const a=me.role==='admin',tabs=[['sum','Нэгтгэл'],['it','Бүртгэл'],['us','Хэрэглэгчид'],['hs','Түүх']];
+  $('#app').innerHTML=`<header>${brand(1)}${demo?'<span class="demo">ДЕМО</span>':''}<span id="dot" title="Интернэт холболт"></span><span class="sp"></span><span>${esc(me.name)}, ${a?'админ':esc(me.branch)}</span><button data-a="mypw">Нууц үг</button><button data-a="out">Гарах</button></header>${a?`<nav>${tabs.map(([k,v])=>`<button data-a="tab" data-t="${k}" class="${tab===k?'on':''}">${v}</button>`).join('')}</nav>`:''}<main><div id="f"></div><div id="l"></div></main>`;
+  form();list();dot()}
+
+function form(){
+  const a=me.role==='admin',e=edit||{},f=$('#f');
+  if(tab==='it')f.innerHTML=`<form id="fi" class="card g"><select name="kind">${kopt(e.kind)}</select>${a&&!e.id?`<select name="branch" required><option value="">Салбар сонгох</option>${opt(br(),'')}</select>`:''}<input name="name" placeholder="Нэр, марк" value="${esc(e.name)}" required><input name="number" placeholder="Дугаар (улсын, серийн)" value="${esc(e.number)}"><select name="status">${opt(ST,e.status)}</select><input name="note" placeholder="Тэмдэглэл" value="${esc(e.note)}"><button class="pr">${e.id?'Хадгалах':'Нэмэх'}</button>${e.id?'<button type="button" data-a="cx">Болих</button>':''}</form>
+<div class="bar"><select data-f="fk"><option value="">Бүх төрөл</option>${kopt(fk)}</select>${a?`<select data-f="fb"><option value="">Бүх салбар</option>${opt(br(),fb)}</select>`:''}<input data-f="q" placeholder="Хайх" value="${esc(q)}"><button data-a="csv">Excel (CSV)</button><button data-a="print">Хэвлэх</button></div>`;
+  else if(tab==='us')f.innerHTML=`<form id="fu" class="card g"><input name="email" type="email" placeholder="Хэрэглэгчийн имэйл" required><input name="name" placeholder="Хэрэглэгчийн нэр"><input name="branch" placeholder="Салбарын нэр" required><input name="password" type="password" minlength="6" placeholder="Анхны нууц үг (6+)" required><button class="pr">Хэрэглэгч үүсгэх</button></form>`;
+  else f.innerHTML=''}
+
+function rows(){const k=q.toLowerCase();return items.filter(i=>(!fk||i.kind===fk)&&(!fb||i.branch===fb)&&(!k||(i.name+' '+i.number+' '+i.note).toLowerCase().includes(k))).sort((x,y)=>x.branch.localeCompare(y.branch)||x.kind.localeCompare(y.kind)||x.name.localeCompare(y.name))}
+
+function list(){
+  if(!me)return;const a=me.role==='admin',l=$('#l');if(!l)return;
+  if(tab==='sum'){
+    const z=()=>({auto:0,weapon:0,st:ST.map(()=>0)}),g={},tot=z();
+    br().forEach(n=>g[n]=z());
+    items.forEach(i=>{[g[i.branch],tot].forEach(x=>{x[i.kind]++;const k=ST.indexOf(i.status);if(k>=0)x.st[k]++})});
+    const row=(n,x)=>[n,x.auto,x.weapon,...x.st,x.auto+x.weapon];
+    l.innerHTML=kpi(tot)+tbl(['Салбар','Авто техник','Зэвсэг',...ST,'Нийт'],[...Object.keys(g).map(n=>row(esc(n),g[n])),row('<b>Нийт</b>',tot)])}
+  else if(tab==='it'){
+    const r=rows();
+    l.innerHTML=`<p class="mu">Нийт: ${r.length}</p>`+tbl([...(a?['Салбар']:[]),'Төрөл','Нэр','Дугаар','Төлөв','Тэмдэглэл','Сүүлд',''],r.map(i=>[...(a?[esc(i.branch)]:[]),KIND[i.kind],esc(i.name),'<span class="mono">'+esc(i.number)+'</span>',`<span class="b b${ST.indexOf(i.status)}">${esc(i.status)}</span>`,esc(i.note),esc(i.by)+'<br><small class="mu">'+fd(i.at)+'</small>',`<button data-a="ed" data-id="${i.id}">Засах</button> <button data-a="del" data-id="${i.id}">Хасах</button>`]))}
+  else if(tab==='us')l.innerHTML=`<div class="card"><small class="mu">Салбаруудад илгээх холбоос. Төхөөрөмж бүр дээр нэг удаа нээхэд л хангалттай:</small><pre>${esc(link())}</pre><button data-a="cl">Холбоосыг хуулах</button></div>`+tbl(['Имэйл','Нэр','Салбар','Эрх',''],users.map(u=>[esc(u.email),esc(u.name),esc(u.branch),u.role==='admin'?'админ':'салбар',`<button data-a="rp" data-m="${esc(u.email)}">Нууц үг сэргээх</button>`+(u.id===me.uid?'':` <button data-a="du" data-id="${u.id}">Эрх хасах</button>`)]));
+  else l.innerHTML=tbl(['Огноо','Хэн','Салбар','Үйлдэл'],log.map(x=>[fd(x.t),esc(x.u),esc(x.b),esc(x.a)]))}
+
+function csv(){
+  const a=me.role==='admin',L=[[...(a?['Салбар']:[]),'Төрөл','Нэр','Дугаар','Төлөв','Тэмдэглэл'],...rows().map(i=>[...(a?[i.branch]:[]),KIND[i.kind],i.name,i.number,i.status,i.note])];
+  const t='\ufeff'+L.map(r=>r.map(v=>{v=String(v||'');if(/^[=+\-@]/.test(v))v="'"+v;return'"'+v.replace(/"/g,'""')+'"'}).join(',')).join('\r\n');
+  const l=document.createElement('a');l.href=URL.createObjectURL(new Blob([t],{type:'text/csv;charset=utf-8'}));l.download='burtgel-'+new Date().toISOString().slice(0,10)+'.csv';l.click()}
+
+document.addEventListener('click',async e=>{
+  const b=e.target.closest('[data-a]');if(!b)return;e.preventDefault();
+  const a=b.dataset.a,id=b.dataset.id,rs=m=>demo?alert('Демо горим: имэйл илгээгдэхгүй'):sendPasswordResetEmail(auth,m).then(()=>alert('Нууц үг солих холбоос '+m+' хаяг руу илгээгдлээ'));
+  try{
+    if(a==='out'){demo?location.reload():signOut(auth)}
+    else if(a==='demoA'||a==='demoB')demoStart(a==='demoA'?'a':'b');
+    else if(a==='mode'){mode=mode==='in'?'up':'in';loginView()}
+    else if(a==='forgot'){const m=$('input[name=email]').value.trim();if(!m)return alert('Эхлээд имэйлээ оруулна уу');await rs(m)}
+    else if(a==='rp')await rs(b.dataset.m);
+    else if(a==='mypw'){if(confirm(me.email+' хаяг руу нууц үг солих холбоос илгээх үү?'))await rs(me.email)}
+    else if(a==='tab'){tab=b.dataset.t;edit=null;shell()}
+    else if(a==='ed'){edit=items.find(i=>i.id===id);form();scrollTo(0,0)}
+    else if(a==='cx'){edit=null;form()}
+    else if(a==='del'&&demo){if(confirm('Энэ бүртгэлийг хасах уу?')){const it=items.find(i=>i.id===id);items=items.filter(i=>i.id!==id);logit('хассан: '+it.name+' '+it.number,it.branch);list()}}
+    else if(a==='del'){if(confirm('Энэ бүртгэлийг хасах уу?')){const it=items.find(i=>i.id===id);deleteDoc(doc(db,'items',id)).catch(x=>alert(msg(x)));logit('хассан: '+it.name+' '+it.number,it.branch)}}
+    else if(a==='du'&&demo){users=users.filter(u=>u.id!==id);list()}
+    else if(a==='du'){if(confirm('Хэрэглэгчийн эрхийг хасах уу? Түүний бүртгэлүүд үлдэнэ.'))await deleteDoc(doc(db,'users',id))}
+    else if(a==='cl'){await navigator.clipboard.writeText(link());alert('Хуулагдлаа')}
+    else if(a==='cp'){await navigator.clipboard.writeText($('#rl').textContent);alert('Хуулагдлаа')}
+    else if(a==='done')location.reload();
+    else if(a==='csv')csv();
+    else if(a==='print')print();
+  }catch(x){alert(msg(x))}});
+
+document.addEventListener('input',e=>{const f=e.target.dataset.f;if(!f)return;const v=e.target.value;if(f==='fk')fk=v;else if(f==='fb')fb=v;else q=v;list()});
+
+document.addEventListener('submit',async e=>{
+  e.preventDefault();const f=e.target,d=Object.fromEntries(new FormData(f));
+  try{
+    if(f.id==='fs'){const o={};[...d.cfg.matchAll(/(\w+)\s*:\s*["']([^"']*)["']/g)].forEach(m=>o[m[1]]=m[2]);if(!o.apiKey||!o.projectId)throw Error('Тохиргоо буруу байна');localStorage.setItem('cfg',JSON.stringify(o));setupView(2,d.email)}
+    else if(f.id==='fl')await signInWithEmailAndPassword(auth,d.email.trim(),d.password);
+    else if(f.id==='fa')await createUserWithEmailAndPassword(auth,d.email.trim(),d.password);
+    else if(f.id==='fi'&&demo){
+      const a=me.role==='admin',v={kind:d.kind,name:d.name.trim(),number:d.number.trim(),status:d.status,note:d.note.trim(),by:me.name,at:Date.now()},branch=a?(edit?edit.branch:d.branch):me.branch;
+      if(edit){Object.assign(items.find(i=>i.id===edit.id),v);logit('зассан: '+v.name+' '+v.number,branch)}else{items.push({id:'i'+Date.now(),branch,...v});logit('нэмсэн: '+v.name+' '+v.number,branch)}
+      edit=null;form();list()}
+    else if(f.id==='fi'){
+      const a=me.role==='admin',v={kind:d.kind,name:d.name.trim(),number:d.number.trim(),status:d.status,note:d.note.trim(),by:me.name,at:Date.now()},branch=a?(edit?edit.branch:d.branch):me.branch;
+      if(edit){updateDoc(doc(db,'items',edit.id),v).catch(x=>alert(msg(x)));logit('зассан: '+v.name+' '+v.number,branch)}
+      else{addDoc(collection(db,'items'),{...v,branch}).catch(x=>alert(msg(x)));logit('нэмсэн: '+v.name+' '+v.number,branch)}
+      edit=null;form()}
+    else if(f.id==='fu'&&demo){users.push({id:'u'+Date.now(),email:d.email.trim(),name:d.name.trim()||d.branch.trim(),branch:d.branch.trim(),role:'branch'});logit('хэрэглэгч үүсгэсэн: '+d.email.trim());f.reset();list()}
+    else if(f.id==='fu'){
+      sec=sec||initializeApp(cfg,'sec');const a2=getAuth(sec);
+      const c=await createUserWithEmailAndPassword(a2,d.email.trim(),d.password);await signOut(a2);
+      await setDoc(doc(db,'users',c.user.uid),{name:d.name.trim()||d.branch.trim(),branch:d.branch.trim(),role:'branch',email:c.user.email});
+      logit('хэрэглэгч үүсгэсэн: '+c.user.email);f.reset()}
+  }catch(x){const r=$('#err'),m=msg(x);r?r.textContent=m:alert(m)}});
+
+if(cfg){const app=initializeApp(cfg);auth=getAuth(app);db=initializeFirestore(app,{localCache:persistentLocalCache({tabManager:persistentMultipleTabManager()})});onAuthStateChanged(auth,boot)}else setupView(1);
+</script>
+</body>
+</html>
